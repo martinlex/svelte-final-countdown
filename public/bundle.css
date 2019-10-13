@@ -1,0 +1,7 @@
+:root{--pinkColor:salmon;--greyColor:lightgrey;--redColor:red}
+.container.svelte-yx8gaq{padding:2rem}
+h1.svelte-1sm3owh{color:var(--pinkColor)}
+button.svelte-bgxmny{background-color:var(--pinkColor);border:2px solid var(--pinkColor);color:#fff}button[disabled].svelte-bgxmny{background-color:var(--greyColor);border:2px solid var(--greyColor)}
+.warning.svelte-a96gc3{color:var(--redColor)}
+
+/*# sourceMappingURL=bundle.css.map */

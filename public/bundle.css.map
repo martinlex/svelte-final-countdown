@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.svelte",
+    "../src/Container.svelte",
+    "../src/Heading.svelte",
+    "../src/Button.svelte",
+    "../src/Counter.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import Container from './Container.svelte';\n  import Heading from './Heading.svelte';\n  import Button from './Button.svelte';\n  import Counter from './Counter.svelte';\n  import Image from './Image.svelte';\n</script>\n\n<style>\n  :global(:root){\n    --pinkColor: salmon;\n    --greyColor: lightgrey;\n    --redColor: red;\n  }\n</style>\n\n<Container>\n  <Heading text=\"The Final Countdown-appen\"/>\n  <Button type=\"button\" text=\"Räkna ner\"/>\n  <Counter />\n  <Image src=\"jtempest.jpg\"/>\n</Container>\n",
+    "<style>\n  .container {\n    padding: 2rem;\n  }\n</style>\n\n<div class=\"container\">\n  <slot></slot>\n</div>\n",
+    "<script>\n  export let text;\n</script>\n\n<style>\n  h1 {\n    color: var(--pinkColor);\n  }\n</style>\n\n<h1>{text}</h1>\n",
+    "<script>\n  import { count } from './stores.js';\n\n  export let type;\n  export let text;\n\n  let countValue;\n\n  const unsubscribe = count.subscribe(value => {\n    countValue = value;\n  });\n\n  const decrement = () => {\n    if (countValue !== 0) count.update(n => n - 1);\n  };\n</script>\n\n<style>\n  button {\n    background-color: var(--pinkColor);\n    border: 2px solid var(--pinkColor);\n    color: #fff;\n  }\n  button[disabled] {\n    background-color: var(--greyColor);\n    border: 2px solid var(--greyColor);\n  }\n</style>\n\n<button type={type} on:click={decrement} disabled='{countValue === 0}'>{text}</button>\n",
+    "<script>\n  import { count } from './stores.js';\n\n  let countValue;\n\n  const unsubscribe = count.subscribe(value => {\n    countValue = value;\n  });\n</script>\n\n<style>\n  .warning {\n    color: var(--redColor);\n  }\n</style>\n\n<p class:warning=\"{countValue < 4}\">{countValue}</p>\n"
+  ],
+  "names": [],
+  "mappings": "AASU,KAAK,AAAC,CAAC,AACb,WAAW,CAAE,MAAM,CACnB,WAAW,CAAE,SAAS,CACtB,UAAU,CAAE,GAAG,AACjB,CAAC;ACZD,UAAU,cAAC,CAAC,AACV,OAAO,CAAE,IAAI,AACf,CAAC;ACED,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,IAAI,WAAW,CAAC,AACzB,CAAC;ACWD,MAAM,cAAC,CAAC,AACN,gBAAgB,CAAE,IAAI,WAAW,CAAC,CAClC,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,WAAW,CAAC,CAClC,KAAK,CAAE,IAAI,AACb,CAAC,AACD,MAAM,CAAC,QAAQ,CAAC,cAAC,CAAC,AAChB,gBAAgB,CAAE,IAAI,WAAW,CAAC,CAClC,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,WAAW,CAAC,AACpC,CAAC;ACfD,QAAQ,cAAC,CAAC,AACR,KAAK,CAAE,IAAI,UAAU,CAAC,AACxB,CAAC"
+}
